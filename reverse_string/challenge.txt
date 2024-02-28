@@ -1,0 +1,30 @@
+Reverse String Coding Challenge
+
+Challenge:
+
+Write a function or method that reverses a given string.
+
+Problem Statement:
+
+You are required to implement a solution that takes a string as input and returns the reversed string.
+
+Example:
+
+Input:
+"Hello, World!"
+
+Output:
+"!dlroW ,olleH"
+
+Constraints:
+
+- The input string will only contain printable ASCII characters.
+- Consider the case where the input string is empty.
+
+Evaluation Criteria:
+
+Your solution will be evaluated based on the following criteria:
+
+- Correctness: The solution should produce the correct output for the given input.
+- Efficiency: Aim for an optimal solution with respect to time and space complexity.
+- Readability: Write clean, well-organized code with meaningful variable names and comments where necessary.
