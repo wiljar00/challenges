@@ -22,3 +22,9 @@ The project follows a specific structure for organizing challenges and their sol
 - **Language-Specific Directories:**
   - Inside each challenge directory, there are sub-directories for solutions in different programming languages.
   - For example, the C++ solution for reversing a string is found in `challenges/reverse_string/c++/main.cpp`, and the Ruby solution is in `challenges/reverse_string/ruby/main.rb`.
+
+
+
+# TODO:
+ - add a test to each file and leave the solution blank. 
+ - this will help understand the questions better by writing expectations in tests
