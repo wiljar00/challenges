@@ -70,3 +70,46 @@ def make_change(amount)
   end
 
   make_change(1020)
+
+
+
+
+
+
+  # another attempt - class based
+
+  class BillCollector
+    def initialize(total_amount, bills)
+        @total_amount = total_amount
+        @bills = bills
+    end
+
+    def get_minimum_combo
+        change = {}
+
+        @bills.each do |bill|
+            if @total_amount >= bill
+                count = @total_amount / bill
+                change[bill] = count
+                @total_amount %= bill
+            end
+        end
+
+        print_message(change)
+    end
+
+    private
+
+    def print_message(change)
+        change.each do |bill, count|
+            puts "Number of $#{bill} bills: #{count}"
+        end
+    end
+end
+
+
+total_amount = 1219
+bills = [20, 10, 5, 1]
+
+test = BillCollector.new(total_amount, bills)
+test.get_minimum_combo
