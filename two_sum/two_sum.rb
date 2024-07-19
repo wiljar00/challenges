@@ -44,7 +44,8 @@ def two_sum(nums, target)
   puts "target: #{target}"
   puts two_sum(nums, target).inspect  # Output: [0, 1]
   
-#   Explanation:
+#        Explanation:
+#       --------------
 # 1. Hash Initialization: We initialize an empty hash to store the numbers and their indices as we iterate through the array.
 # 2. Iteration with Index: We use each_with_index to iterate through the array while keeping track of the index.
 # 3. Complement Calculation: For each number, we calculate its complement (i.e., the number needed to reach the target sum).
