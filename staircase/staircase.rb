@@ -33,4 +33,11 @@ def staircase(n)
     end
 end
 
+# perfect Ruby solution: 
+# def staircase(n)
+#     (1..n).each do |i|
+#       puts ('#' * i).rjust(n)
+#     end
+# end
+
 staircase(4)
