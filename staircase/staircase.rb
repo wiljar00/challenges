@@ -12,20 +12,24 @@
 # The function accepts INTEGER n as parameter.
 #
 
-def line_printer(n)
+def line_printer(n, total)
     string = ""
 
     for i in 1..n
         string = string << "#"
     end
 
-    puts string
+    while string.length != total do
+        string = string << " "
+    end
+
+    puts string.reverse
 end
 
 def staircase(n)
     # Write your code here
     for i in 1..n
-        line_printer(i)
+        line_printer(i, n)
     end
 end
 
