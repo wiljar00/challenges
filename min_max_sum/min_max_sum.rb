@@ -17,6 +17,16 @@ def first_answer_using_sort(arr)
     puts "#{min} #{max}"
 end
 
+def second_answer_without_sort(arr)
+    total_sum = arr.sum
+    min_value = arr.min
+    max_value = arr.max
+  
+    min_sum = total_sum - max_value
+    max_sum = total_sum - min_value
+  
+    puts "#{min_sum} #{max_sum}"
+end
 def miniMaxSum(arr)
     # Write your code here
     min = 0
@@ -26,7 +36,19 @@ def miniMaxSum(arr)
     # 1. sort the array from small to large
     # 2. min is the first two array values added together
     # 3. max is the last two array values added together
-    first_answer_using_sort(arr)
+    #
+    # first_answer_using_sort(arr)
+
+    # Second idea - difficult without using sort, but here's the Ruby way:
+    #
+    # 1. find the sum of the array
+    # 2. find the minimum value if the array
+    # 3. find the maximum value in the array
+    # 4. min_sum is the total - max value in array
+    # 5. max_sum is the total - min value in array
+    #
+    # still uses built in Ruby methods but is simple. 
+    second_answer_without_sort(arr)
 end
 
 # array = [1, 3, 5, 7, 9]
