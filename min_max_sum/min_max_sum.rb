@@ -27,6 +27,30 @@ def second_answer_without_sort(arr)
   
     puts "#{min_sum} #{max_sum}"
 end
+
+def third_answer_non_ruby(arr)
+    total_sum = 0
+    min_value = arr[0]
+    max_value = arr[0]
+  
+    arr.each do |value|
+      total_sum += value
+  
+      if value < min_value
+        min_value = value
+      end
+  
+      if value > max_value
+        max_value = value
+      end
+    end
+  
+    min_sum = total_sum - max_value
+    max_sum = total_sum - min_value
+  
+    puts "#{min_sum} #{max_sum}"
+end
+
 def miniMaxSum(arr)
     # Write your code here
     min = 0
@@ -48,7 +72,10 @@ def miniMaxSum(arr)
     # 5. max_sum is the total - min value in array
     #
     # still uses built in Ruby methods but is simple. 
-    second_answer_without_sort(arr)
+    # second_answer_without_sort(arr)
+
+    # Third idea - implement the same as second idea without Ruby methods:
+    third_answer_non_ruby(arr)
 end
 
 # array = [1, 3, 5, 7, 9]
