@@ -9,10 +9,7 @@
 # The function accepts INTEGER_ARRAY candles as parameter.
 #
 
-def birthdayCakeCandles(candles)
-    # basically find the max value in the array 
-    # return how how many times that value appears in the array
-
+def first_solution(candles)
     max = candles.max
     count = 0
 
@@ -22,6 +19,20 @@ def birthdayCakeCandles(candles)
         end
     end
 
+    count
+end
+
+def best_ruby_solution(candles)
+    max = candles.max
+    candles.count(max)
+end
+
+def birthdayCakeCandles(candles)
+    # basically find the max value in the array 
+    # return how how many times that value appears in the array
+
+    # count = first_solution(candles)
+    count = best_ruby_solution(candles)
     count
 end
 
