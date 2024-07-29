@@ -10,11 +10,20 @@
 #
 
 def birthdayCakeCandles(candles)
-    # Write your code here
-    candles = 0
+    # basically find the max value in the array 
+    # return how how many times that value appears in the array
 
-    puts "#{candles}"
+    max = candles.max
+    count = 0
+
+    candles.each do |value|
+        if value == max
+            count += 1
+        end
+    end
+
+    count
 end
 
 candles = [4, 4, 1, 3]
-birthdayCakeCandles(candles)
+puts birthdayCakeCandles(candles)
