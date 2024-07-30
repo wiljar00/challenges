@@ -30,10 +30,27 @@ def first_solution(s)
     "#{hour}:#{minute}:#{second}"
 end
 
+def second_solution(s)
+    hour = s[0..1].to_i
+    minute = s[3..4]
+    second = s[6..7]
+    period = s[8..9]
+  
+    if period == "AM"
+      hour = 0 if hour == 12
+    else
+      hour += 12 if hour != 12
+    end
+  
+    hour_str = hour.to_s.rjust(2, '0')
+    "#{hour_str}:#{minute}:#{second}"
+end
+
 def timeConversion(s)
     # Write your code here
 
-    time = first_solution(s)
+    # time = first_solution(s)
+    time = second_solution(s)
     time
 end
 
