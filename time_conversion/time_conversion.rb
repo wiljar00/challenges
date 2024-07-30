@@ -46,11 +46,22 @@ def second_solution(s)
     "#{hour_str}:#{minute}:#{second}"
 end
 
+def ruby_cheat_solution(s)
+    require 'Time'
+
+    # Parse the time string into a Time object
+    time = Time.strptime(s, "%I:%M:%S%p")
+
+    # Format the Time object into a 24-hour time string
+    time.strftime("%H:%M:%S")
+end
+
 def timeConversion(s)
     # Write your code here
 
-    # time = first_solution(s)
-    time = second_solution(s)
+    time = first_solution(s)
+    # time = second_solution(s)
+    # time = ruby_cheat_solution(s)
     time
 end
 
