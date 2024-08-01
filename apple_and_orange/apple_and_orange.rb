@@ -57,11 +57,26 @@ def countApplesAndOranges(s, t, a, b, apples, oranges)
     # Print two integers on two different lines:
     #     The first integer: the number of apples that fall on Sam's house.
     #     The second integer: the number of oranges that fall on Sam's house.
-    puts valid_area
-    puts apple_to_valid_area
-    puts valid_to_orange_area
-    # puts "1"
-    # puts "1"
+
+    sams_apples = 0
+    sams_oranges = 0
+
+    apples.each do |apple|
+        distance = apple + s
+        if valid_area.include?(distance)
+            sams_apples +=1
+        end
+    end
+
+    oranges.each do |orange|
+        distance = orange + t
+        if valid_area.include?(distance)
+            sams_apples +=1
+        end
+    end
+
+    puts sams_apples
+    puts sams_oranges
 end
 
 
@@ -75,4 +90,4 @@ n = 2
 distance_from_a = [-2, 2, 1]
 distance_from_b = [5, -6]
 
-countApplesAndOranges(s, t, a, b, distance_from_a, distance_from_b)
+countApplesAndOranges(s, t, a, b, distance_from_a, distance_from_b) # expect 1\n1
