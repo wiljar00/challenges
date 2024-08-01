@@ -49,12 +49,19 @@
 
 def countApplesAndOranges(s, t, a, b, apples, oranges)
     
+    valid_area = [s...t]
+    apple_to_valid_area = [a...s]
+    valid_to_orange_area = [t...b]
+
     # output:
     # Print two integers on two different lines:
     #     The first integer: the number of apples that fall on Sam's house.
     #     The second integer: the number of oranges that fall on Sam's house.
-    puts "1"
-    puts "1"
+    puts valid_area
+    puts apple_to_valid_area
+    puts valid_to_orange_area
+    # puts "1"
+    # puts "1"
 end
 
 
