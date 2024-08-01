@@ -48,11 +48,6 @@
 #
 
 def countApplesAndOranges(s, t, a, b, apples, oranges)
-    
-    valid_area = [s...t]
-    apple_to_valid_area = [a...s]
-    valid_to_orange_area = [t...b]
-
     # output:
     # Print two integers on two different lines:
     #     The first integer: the number of apples that fall on Sam's house.
@@ -62,16 +57,16 @@ def countApplesAndOranges(s, t, a, b, apples, oranges)
     sams_oranges = 0
 
     apples.each do |apple|
-        distance = apple + s
-        if valid_area.include?(distance)
-            sams_apples +=1
+        distance = a + apple
+        if distance >= s && distance <= t
+            sams_apples += 1
         end
     end
 
     oranges.each do |orange|
-        distance = orange + t
-        if valid_area.include?(distance)
-            sams_apples +=1
+        distance = b + orange
+        if distance >= s && distance <= t
+            sams_oranges += 1
         end
     end
 
