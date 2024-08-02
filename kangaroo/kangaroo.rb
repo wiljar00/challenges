@@ -18,18 +18,16 @@
 #
 
 def kangaroo(x1, v1, x2, v2)
-    first_jump_1 = x1 + v1
-    first_jump_2 = x2 + v2
-    position_difference = x1 - x2
-    velocity_difference = v2 - v1
+    # Write your code here
 
-    if first_jump_1 == first_jump_2
+    if v1 != v2
+        if (x2 - x1) % (v1 - v2) == 0 && (x2 - x1) / (v1 - v2) > 0
+            return "YES"
+        end
+    elsif x1 == x2
         return "YES"
     end
-
-    will_meet = (position_difference % velocity_difference == 0) && (position_difference / velocity_difference < 0)
-  
-    return will_meet ? "YES" : "NO"
+    "NO"
 end
 
 x1 = 0
@@ -37,5 +35,5 @@ v1 = 3
 x2 = 4
 v2 = 2
 
-puts kangaroo(x1, v1, x2, v2) # should be "NO"
+puts kangaroo(x1, v1, x2, v2) # should be "YES"
 puts kangaroo(2, 1, 1, 2) # should be "YES"
