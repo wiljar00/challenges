@@ -13,25 +13,28 @@
 #
 
 def getTotalX(a, b)
-    # Write your code here
-    min = a.min
-    max = b.max
-    all_possible_integers = (min...max).to_a
-    both_datasets = a + b
-    factors = []
-    possible_factors = []
+  # Find the range to check for potential candidates
+  max_a = a.max
+  min_b = b.min
 
-    all_possible_integers.each do |possible_num|
-        both_datasets.each do |divisor|
-            # next if possible_num > divisor
-            if possible_num % divisor == 0
-                possible_factors << possible_num unless possible_factors.include?(possible_num)
-            end
-        end
+  factors = []
+
+  (max_a..min_b).each do |possible_num|
+    is_multiple_of_a = a.all? do |a_num|
+      possible_num % a_num == 0
     end
 
-    puts "Factors: #{possible_factors}"
-    possible_factors.size
+    is_factor_of_b = b.all? do |b_num|
+      b_num % possible_num == 0
+    end
+
+    if is_multiple_of_a && is_factor_of_b
+      factors << possible_num
+    end
+  end
+
+  puts "Factors: #{factors}"
+  factors.size
 end
 
 
