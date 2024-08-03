@@ -14,11 +14,33 @@
 
 def getTotalX(a, b)
     # Write your code here
+    min = a.min
+    max = b.max
+    all_possible_integers = (min...max).to_a
+    both_datasets = a + b
+    factors = []
+    possible_factors = []
 
+    all_possible_integers.each do |possible_num|
+        both_datasets.each do |divisor|
+            # next if possible_num > divisor
+            if possible_num % divisor == 0
+                possible_factors << possible_num unless possible_factors.include?(possible_num)
+            end
+        end
+    end
+
+    puts "Factors: #{possible_factors}"
+    possible_factors.size
 end
 
 
 a = [2, 6]
 b = [24, 36]
 
-puts getTotalX(a, b)
+puts getTotalX(a, b) # returns [6, 2].size which is 2
+
+a = [2, 4]
+b = [16, 32, 96]
+
+puts getTotalX(a, b) # returns [4, 8, 16].size which is 3
