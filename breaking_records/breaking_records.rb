@@ -13,11 +13,27 @@
 #
 # The function is expected to return an INTEGER_ARRAY.
 # The function accepts INTEGER_ARRAY scores as parameter.
+# index 0 is for max breaking count, index 1 is for least breaking point
 #
 
 def breakingRecords(scores)
     # Write your code here
+    min_score = scores[0]
+    max_score = scores[0]
+    breaking_max_record_count = 0
+    breaking_min_record_count = 0
 
+    scores.each do |score|
+        if score > max_score
+            breaking_max_record_count += 1
+            max_score = score
+        elsif score < min_score
+            breaking_min_record_count += 1
+            min_score = score
+        end
+    end
+
+    return [breaking_max_record_count, breaking_min_record_count]
 end
 
 
