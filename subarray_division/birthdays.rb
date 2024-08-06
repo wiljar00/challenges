@@ -24,12 +24,41 @@
 #
 
 def birthday(s, d, m)
-    # Write your code here
+    count = 0
+
+    # Iterate over the possible starting positions of the subarrays
+    (0..s.length - m).each do |i|
+      # Extract the subarray of length m starting at index i
+      segment = s[i, m]
+      
+      # Calculate the sum of the subarray
+      segment_sum = segment.sum
+      
+      # Check if the sum matches the required value d
+      if segment_sum == d
+        # Increment the count if it matches
+        count += 1
+      end
+    end
+  
+    # Return the total count of matching subarrays
+    count
 
 end
 
+# example 1: 
+
 s = [2,2,1,3, 2]
 d = 4
+m = 2
+
+puts birthday(s, d, m) # expect 2 (count of subarrays - [2, 2] and [1, 3])
+
+
+# example 2:
+
+s = [1, 2, 1, 3, 2]
+d = 3
 m = 2
 
 puts birthday(s, d, m) # expect 2 (count of subarrays - [2, 2] and [1, 3])
