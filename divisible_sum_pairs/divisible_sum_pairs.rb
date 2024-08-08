@@ -13,11 +13,22 @@
 
 def divisibleSumPairs(n, k, ar)
     # Write your code here
-    ar
+    count = 0
+
+    (0...n).each do |i|
+        (i+1...n).each do |j|
+          sum = ar[i] + ar[j]
+          
+          if sum % k == 0
+            count += 1
+          end
+        end
+      end
+    count
 end
 
-ar = [1, 2, 3, 4, 5, 6]
-k = 5
-n = ar.length
+ar = [1, 3, 2, 6, 1, 2]
+k = 3
+n = 6
 
-puts divisibleSumPairs(n, k, ar)
+puts divisibleSumPairs(n, k, ar) # should be 5
