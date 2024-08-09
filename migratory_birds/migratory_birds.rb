@@ -11,8 +11,16 @@
 #
 
 def migratoryBirds(arr)
-    # Write your code here
-    
+    bird_count = Hash.new(0)
+
+    arr.each do |bird_id|
+        bird_count[bird_id] += 1
+    end
+
+    max_frequency = bird_count.values.max
+    max_birds = bird_count.select { |bird_id, count| count == max_frequency }
+
+    max_birds.keys.min
 end
 
 arr = [1, 4, 4, 4, 5, 3]
