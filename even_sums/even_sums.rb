@@ -3,7 +3,7 @@
 # Write a function in Ruby that takes an array of integers as input and 
 # returns the sum of all even numbers in the array.
 
-def sum_of_evens(arr)
+def my_solution(arr)
     even_nums = []
     arr.each do |num|
         if num % 2 == 0
@@ -11,6 +11,10 @@ def sum_of_evens(arr)
         end
     end
     even_nums.sum
+end
+
+def sum_of_evens(arr)
+    my_solution(arr)
 end
 
 puts sum_of_evens([1, 2, 3, 4, 5, 6])
