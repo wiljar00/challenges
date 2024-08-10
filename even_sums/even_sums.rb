@@ -13,8 +13,13 @@ def my_solution(arr)
     even_nums.sum
 end
 
+def perfect_solution(arr)
+    arr.select { |num| num.even? }.sum
+end
+
 def sum_of_evens(arr)
-    my_solution(arr)
+    # my_solution(arr)
+    perfect_solution(arr)
 end
 
 puts sum_of_evens([1, 2, 3, 4, 5, 6])
