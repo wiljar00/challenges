@@ -18,11 +18,15 @@
 #
 
 def bonAppetit(bill, k, b)
-    result = 'Bon Appetit'
+    bill_copy = bill.dup
+    bill_copy.delete_at(k)
+    anna_owes = bill_copy.sum/2
 
-    # update result
-    
-    result
+    if anna_owes == b
+        "Bon Appetit"
+    else
+        b - anna_owes
+    end
 end
 
 bill = [3, 10, 2, 9]
