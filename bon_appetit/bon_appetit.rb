@@ -18,8 +18,11 @@
 #
 
 def bonAppetit(bill, k, b)
-    # Write your code here
+    result = 'Bon Appetit'
 
+    # update result
+    
+    result
 end
 
 bill = [3, 10, 2, 9]
