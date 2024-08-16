@@ -17,7 +17,7 @@
 #  3. INTEGER b - amount of money charged
 #
 
-def bonAppetit(bill, k, b)
+def my_solution(bill, k, b)
     bill_copy = bill.dup
     bill_copy.delete_at(k)
     anna_owes = bill_copy.sum/2
@@ -29,14 +29,27 @@ def bonAppetit(bill, k, b)
     end
 end
 
+def cleaner_solution(bill, k, b)
+  anna_share = (bill.sum - bill[k]) / 2
+  
+  if anna_share == b
+    "Bon Appetit"
+  else
+    b - anna_share
+  end
+end
+
+def bonAppetit(bill, k, b)
+    # my_solution(bill, k, b)
+    cleaner_solution(bill, k, b)
+end
+
 bill = [3, 10, 2, 9]
 k = 1
 b = 12
-
 puts bonAppetit(bill, k, b) # expect 5
 
 bill = [3, 10, 2, 9]
 k = 1
 b = 7
-
 puts bonAppetit(bill, k, b) # expect "Bon Appetit"
