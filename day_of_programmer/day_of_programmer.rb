@@ -24,7 +24,7 @@
 # The function accepts INTEGER year as parameter.
 #
 
-def dayOfProgrammer(year)
+def first_overcomplicated_solution(year)
     # Write your code here
     is_leap_year = year % 4 == 0 
     julean_years = (1700..1917).to_a
@@ -51,7 +51,29 @@ def dayOfProgrammer(year)
 
     days_per_year = days_per_month.values.sum
 
-    days_per_year
+    # couldn't quite get there...
+    'date'
+end
+
+def best_solution(year)
+    is_transition_year = year == 1918
+
+    is_julian_leap_year = year < 1918 && year % 4 == 0
+    is_gregorian_leap_year = year > 1918 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+
+    if is_transition_year
+        day_of_programmer = "26.09.1918"
+    elsif is_julian_leap_year || is_gregorian_leap_year
+        day_of_programmer = "12.09.#{year}"
+    else
+        day_of_programmer = "13.09.#{year}"
+    end
+
+    day_of_programmer
+end
+
+def dayOfProgrammer(year)
+    best_solution(year)
 end
 
 year1 = 2016
@@ -59,6 +81,3 @@ puts dayOfProgrammer(year1) # expect 12.09.2016
 
 year2 = 1800
 puts dayOfProgrammer(year2) # expect 12.09.1800
-
-year3 = 2011
-puts dayOfProgrammer(year3) # expect 12.09.2016
