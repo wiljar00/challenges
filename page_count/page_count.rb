@@ -18,9 +18,20 @@
 
 def pageCount(n, p)
     # Write your code here
+    total_pages = n
+    destination_age = p
+    minimup_page_turns = 0
 
+    minimup_page_turns -= p
+
+    minimup_page_turns.abs
 end
 
-n = 1
-p = 1
-puts pageCount(n, p)
+n = 5
+p = 4
+puts pageCount(n, p) # should return 0
+
+
+n = 6
+p = 2
+puts pageCount(n, p) # should return 1
