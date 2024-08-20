@@ -17,14 +17,18 @@
 #
 
 def pageCount(n, p)
-    # Write your code here
-    total_pages = n
-    destination_age = p
-    minimup_page_turns = 0
+    # Calculate turns from the front
+    front_turns = p / 2
+    
+    # Calculate turns from the back
+    if n.even?
+        back_turns = (n - p + 1) / 2
+    else
+        back_turns = (n - p) / 2
+    end
 
-    minimup_page_turns -= p
-
-    minimup_page_turns.abs
+    # Return the minimum of the two
+    [front_turns, back_turns].min
 end
 
 n = 5
