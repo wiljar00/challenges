@@ -18,8 +18,30 @@
  */
 
 function pageCount(n, p) {
-    // Write your code here
-    return "test"
+    // front turns would would be 2 increments every page turn, so p / n
+    let front_pages = p/2
+
+    // back pages would be different depending on if p is even or odd. 
+    let back_pages = 0
+
+    if (n % 2 === 0) {
+        // page is even
+        // find the total pages minus the desired page, then add 1 for the first page
+        back_pages = (n - p) + 1
+        // divide that number by 2, because each page turn is 2 page numbers
+        back_pages = back_pages/2
+    } else {
+        // page is odd
+        // find total pages minus the desired page, then divide by 2
+        back_pages = (n - p) / 2
+    }
+
+    // return the smaller of the two (front/back)
+    if (front_pages >= back_pages) {
+        return back_pages
+    } else {
+        return front_pages
+    }
 }
 
 n = 5
