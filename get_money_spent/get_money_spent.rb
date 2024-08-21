@@ -12,14 +12,17 @@ def getMoneySpent(keyboards, drives, b)
     'test'
 end
 
+keyboards = [40, 50, 60]
+drives = [5, 8, 12]
+b = 60
+puts getMoneySpent(keyboards, drives, b) # expects 9
+
 keyboards = [3, 1]
 drives = [5, 2, 8]
 b = 10
-
 puts getMoneySpent(keyboards, drives, b) # expects 9
 
 keyboards = [5]
 drives = [4]
 b = 5
-
 puts getMoneySpent(keyboards, drives, b) # expects -1
