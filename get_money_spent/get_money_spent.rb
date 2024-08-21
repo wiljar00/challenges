@@ -6,16 +6,24 @@
 # Complete the getMoneySpent function below.
 #
 def getMoneySpent(keyboards, drives, b)
-    #
-    # Write your code here.
-    #
-    'test'
+    result = -1
+
+    keyboards.each do |keyboard_price|
+      drives.each do |drive_price|
+        total_cost = keyboard_price + drive_price
+        if total_cost <= b && total_cost > result
+          result = total_cost
+        end
+      end
+    end
+  
+    result
 end
 
 keyboards = [40, 50, 60]
 drives = [5, 8, 12]
 b = 60
-puts getMoneySpent(keyboards, drives, b) # expects 9
+puts getMoneySpent(keyboards, drives, b) # expects 58
 
 keyboards = [3, 1]
 drives = [5, 2, 8]
