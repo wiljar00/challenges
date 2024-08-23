@@ -12,11 +12,24 @@
 # Input:
 # x = Cat A's position
 # y = Cat B's position
-# z = Mosue C's position
+# z = Mouse C's position
 # return value = String ('Cat A', 'Cat B', or 'Mouse C')
 
 def catAndMouse(x, y, z)
-    'test'
+    # find the difference between each cat and the mouse
+    # whichever difference is less, return that cat
+    # if the difference is the same, return Mouse
+
+    cat_a_distance = (z - x).abs
+    cat_b_distance = (z - y).abs 
+    
+    if cat_a_distance == cat_b_distance
+        result = 'Mouse C'
+    elsif cat_a_distance > cat_b_distance
+        result = 'Cat B'
+    else
+        result = 'Cat A'
+    end
 end
 
 x = 2
