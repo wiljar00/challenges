@@ -30,6 +30,8 @@ def catAndMouse(x, y, z)
     else
         result = 'Cat A'
     end
+
+    result
 end
 
 x = 2
