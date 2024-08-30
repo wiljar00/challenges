@@ -8,18 +8,23 @@
 #
 
 def pickingNumbers(a)
-    # Write your code here
-    subarray = a[0]
-    
+    frequency = Hash.new(0)
+    a.each { |num| frequency[num] += 1 }
 
-    subarray
+    max_length = 0
+    frequency.keys.each do |num|
+        current_length = frequency[num] + frequency[num + 1]
+        max_length = [max_length, current_length].max
+    end
+
+    max_length
 end
 
 a = [1, 1, 2, 2, 4, 4, 5, 5, 5]
 puts pickingNumbers(a) # expects to return 5
 
 a = [4, 6, 5, 3, 3, 1]
-puts pickingNumbers(a) # expects to return 5
+puts pickingNumbers(a) # expects to return 3
 
 a = [1, 2, 2, 3, 1, 2]
 puts pickingNumbers(a) # expects to return 5
