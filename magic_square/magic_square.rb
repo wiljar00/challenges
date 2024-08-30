@@ -14,10 +14,34 @@
 #
 
 def formingMagicSquare(s)
-    # Write your code here
-    result = 0
+  # All possible 3x3 magic squares
+  magic_squares = [
+    [[8, 1, 6], [3, 5, 7], [4, 9, 2]],
+    [[6, 1, 8], [7, 5, 3], [2, 9, 4]],
+    [[4, 9, 2], [3, 5, 7], [8, 1, 6]],
+    [[2, 9, 4], [7, 5, 3], [6, 1, 8]],
+    [[8, 3, 4], [1, 5, 9], [6, 7, 2]],
+    [[4, 3, 8], [9, 5, 1], [2, 7, 6]],
+    [[6, 7, 2], [1, 5, 9], [8, 3, 4]],
+    [[2, 7, 6], [9, 5, 1], [4, 3, 8]]
+  ]
 
-    return result
+  # Initialize minimum cost to a large number
+  min_cost = Float::INFINITY
+
+  # Calculate the cost to convert the given square to each magic square
+  magic_squares.each do |magic|
+    cost = 0
+    for i in 0..2
+      for j in 0..2
+        cost += (s[i][j] - magic[i][j]).abs
+      end
+    end
+    # Update the minimum cost
+    min_cost = [min_cost, cost].min
+  end
+
+  return min_cost
 end
 
 s = [[5, 3, 4], [1, 5, 8], [6, 4, 2]]
