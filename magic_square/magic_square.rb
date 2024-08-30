@@ -22,3 +22,6 @@ end
 
 s = [[5, 3, 4], [1, 5, 8], [6, 4, 2]]
 puts formingMagicSquare(s) # Expected result: 7
+
+s = [[4, 9, 2],[3, 5, 7], [8, 1, 5]]
+puts formingMagicSquare(s) # Expected result: 1
