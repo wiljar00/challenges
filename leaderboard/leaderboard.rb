@@ -30,25 +30,61 @@
 #  2. INTEGER_ARRAY player
 #
 
-def climbingLeaderboard(ranked, player)
+def first_solution(ranked, player)
+  # Create a unique list of rankings
+  unique_ranks = ranked.uniq
+  result = []
+  rank_index = unique_ranks.length - 1
+  
+  # For each score of the player
+  player.each do |score|
+    # Traverse the unique ranked list from the back
+    while rank_index >= 0 && score >= unique_ranks[rank_index]
+      rank_index -= 1
+    end
+    # The current player's rank is rank_index + 2
+    # Because rank_index + 1 would be where the player's score fits
+    # and rank is 1-based, so add 1 more
+    result << rank_index + 2
+  end
+  
+  result
+end
+
+def second_solution(ranked, player)
+    # Binary search solution
+
     # Create a unique list of rankings
     unique_ranks = ranked.uniq
     result = []
-    rank_index = unique_ranks.length - 1
-    
-    # For each score of the player
+  
     player.each do |score|
-      # Traverse the unique ranked list from the back
-      while rank_index >= 0 && score >= unique_ranks[rank_index]
-        rank_index -= 1
+      # Perform binary search to find the correct rank for the player's score
+      low, high = 0, unique_ranks.size - 1
+  
+      while low <= high
+        mid = (low + high) / 2
+        if unique_ranks[mid] == score
+          low = mid
+          break
+        elsif unique_ranks[mid] < score
+          high = mid - 1
+        else
+          low = mid + 1
+        end
       end
-      # The current player's rank is rank_index + 2
-      # Because rank_index + 1 would be where the player's score fits
-      # and rank is 1-based, so add 1 more
-      result << rank_index + 2
+  
+      # Since we want to return the 1-based rank, and `low` tells us where
+      # the player's score should be inserted:
+      result << (low + 1)
     end
     
     result
+end
+
+def climbingLeaderboard(ranked, player)
+    # first_solution(ranked, player)
+    second_solution(ranked, player)
 end
 
 
