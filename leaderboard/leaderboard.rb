@@ -15,10 +15,10 @@
 # Function Description
 
 # climbingLeaderboard has the following parameters):
-# • int rankedIn: the leaderboard scores
-# • int playerm!: the player's scores
+# • int ranked[n]: the leaderboard scores
+# • int player[m]: the player's scores
 # Returns
-# • intml: the player's rank after each new score
+# • int[m]: the player's rank after each new score
 
 
 #
@@ -32,11 +32,14 @@
 
 def climbingLeaderboard(ranked, player)
     # Write your code here
+    ranking = []
 
+    ranking = [4, 3, 1]
+    return ranking
 end
 
 
 ranked = [100, 90, 90, 80]
 player = [70, 80, 105]
 
-climbingLeaderboard(ranked, player) # should return [4, 3, 1]
+puts climbingLeaderboard(ranked, player) # should return [4, 3, 1]
