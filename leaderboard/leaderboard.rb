@@ -2,7 +2,7 @@
 
 # The game uses Dense Ranking, so its leaderboard works like this:
 # • The player with the highest score is ranked number 1 on the leaderboard.
-# • Players who have equal scores receive the same ranking number, and the next players)
+# • Players who have equal scores receive the same ranking number, and the next player(s)
 # receive the immediately following ranking number.
 
 # Example
@@ -31,11 +31,24 @@
 #
 
 def climbingLeaderboard(ranked, player)
-    # Write your code here
-    ranking = []
-
-    ranking = [4, 3, 1]
-    return ranking
+    # Create a unique list of rankings
+    unique_ranks = ranked.uniq
+    result = []
+    rank_index = unique_ranks.length - 1
+    
+    # For each score of the player
+    player.each do |score|
+      # Traverse the unique ranked list from the back
+      while rank_index >= 0 && score >= unique_ranks[rank_index]
+        rank_index -= 1
+      end
+      # The current player's rank is rank_index + 2
+      # Because rank_index + 1 would be where the player's score fits
+      # and rank is 1-based, so add 1 more
+      result << rank_index + 2
+    end
+    
+    result
 end
 
 
