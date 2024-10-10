@@ -1,5 +1,19 @@
 
 class SpellChecker
+
+  def run_script
+    dictionary = load_dictionary("dictionary.txt")
+
+    puts "Enter a sentence to check:"
+    input_text = gets.chomp
+    
+    misspelled = find_misspelled_words(input_text, dictionary)
+    
+    process_input(misspelled)
+  end
+
+  private
+
   # Load dictionary
   def load_dictionary(file_path)
     words = {}
@@ -40,13 +54,4 @@ class SpellChecker
 end
 
 runner = SpellChecker.new
-dictionary = runner.load_dictionary("dictionary.txt")
-
-puts "Enter a sentence to check:"
-input_text = gets.chomp
-
-misspelled = runner.find_misspelled_words(input_text, dictionary)
-
-runner.process_input(misspelled)
-
-# end
+runner.run_script
