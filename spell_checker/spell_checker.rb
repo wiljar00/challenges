@@ -1,8 +1,9 @@
 
 class SpellChecker
+  DICTIONARY_DIR = "dictionary.txt".freeze
 
   def run_script
-    dictionary = load_dictionary("dictionary.txt")
+    dictionary = load_dictionary(DICTIONARY_DIR)
 
     puts "Enter a sentence to check:"
     input_text = gets.chomp
@@ -14,7 +15,6 @@ class SpellChecker
 
   private
 
-  # Load dictionary
   def load_dictionary(file_path)
     words = {}
     File.foreach(file_path) do |line|
@@ -24,14 +24,13 @@ class SpellChecker
     words
   end
 
-  # Check if a word is spelled correctly
   def spell_check(word, dictionary)
+    # note - word must exist in the loaded dictionary or it will default to "misspelled"
     dictionary.key?(word.downcase)
   end
 
-  # Find misspelled words in a given text
   def find_misspelled_words(text, dictionary)
-    words = text.split(/\W+/)  # Split text by non-word characters
+    words = text.split(/\W+/) # Split text by non-word characters
     misspelled_words = []
 
     words.each do |word|
@@ -53,5 +52,4 @@ class SpellChecker
 
 end
 
-runner = SpellChecker.new
-runner.run_script
+SpellChecker.new.run_script
