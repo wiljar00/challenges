@@ -1,5 +1,7 @@
 
 class SpellChecker
+  # TODO: try implementing Levenshtein distance to suggest the closest valid words
+
   DICTIONARY_DIR = "dictionary.txt".freeze
 
   def run_script
