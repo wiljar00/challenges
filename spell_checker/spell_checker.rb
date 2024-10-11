@@ -2,17 +2,14 @@
 class SpellChecker
   # TODO: try implementing Levenshtein distance to suggest the closest valid words
 
-  DICTIONARY_DIR = "dictionary.txt".freeze
-
   def initialize(dictionary:)
-    @dictionary: load_dictionary(DICTIONARY_DIR)
+    @dictionary = load_dictionary(DICTIONARY_DIR)
   end
 
   def run_script
-    dictionary = load_dictionary(DICTIONARY_DIR)
     puts "Enter a sentence to check:"
     input_text = gets.chomp
-    misspelled = find_misspelled_words(input_text, dictionary)
+    misspelled = find_misspelled_words(input_text, @dictionary)
     process_input(misspelled)
   end
 
@@ -55,4 +52,5 @@ class SpellChecker
 
 end
 
-SpellChecker.new.run_script
+dictionary_file = "dictionary.txt"
+SpellChecker.new(dictionary: dictionary_file).run_script
