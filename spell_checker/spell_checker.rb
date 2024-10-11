@@ -4,14 +4,15 @@ class SpellChecker
 
   DICTIONARY_DIR = "dictionary.txt".freeze
 
+  def initialize(dictionary:)
+    @dictionary: load_dictionary(DICTIONARY_DIR)
+  end
+
   def run_script
     dictionary = load_dictionary(DICTIONARY_DIR)
-
     puts "Enter a sentence to check:"
     input_text = gets.chomp
-    
     misspelled = find_misspelled_words(input_text, dictionary)
-    
     process_input(misspelled)
   end
 
