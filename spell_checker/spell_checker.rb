@@ -3,11 +3,12 @@ class SpellChecker
   # TODO: try implementing Levenshtein distance to suggest the closest valid words
 
   def initialize(dictionary:)
-    @dictionary = load_dictionary(DICTIONARY_DIR)
+    @dictionary = load_dictionary(dictionary)
   end
 
   def run_script
     puts "Enter a sentence to check:"
+    puts "(checked word: about, not-checked word: test)"
     input_text = gets.chomp
     misspelled = find_misspelled_words(input_text, @dictionary)
     process_input(misspelled)
