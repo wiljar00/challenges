@@ -7,7 +7,18 @@ end
 def find_substring(full_string:, substring:)
   result = 'no'
 
-  result = ruby_cheat(full_string, substring)
+  # first solution - ruby cheat code solution
+  # result = ruby_cheat(full_string, substring)
+
+  # second solution - figure it out myself
+  for i in 0..(full_string.length - substring.length)
+    current_slice = full_string[i, substring.length]
+
+    if current_slice == substring
+      result = 'yes'
+      break
+    end
+  end
 
   result
 end
