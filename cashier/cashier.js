@@ -3,8 +3,20 @@
 
 
 function cashier(bills, amount) {
-    console.log(`Bills: ${bills}`)
-    console.log(`Amount: ${amount}`)
+    let result = {};
+    
+    for (let bill of bills) {
+        if (amount >= bill) {
+            // Number of this bill needed
+            result[bill] = Math.floor(amount / bill);  
+            
+            // Reduce the amount accordingly
+            amount -= result[bill] * bill;  
+        }
+    }
+    
+    console.log(result);
+    return result;
 }
 
 
