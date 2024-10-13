@@ -3,25 +3,24 @@
 
 
 function cashier(bills, amount) {
-    let result = {};
+    console.log(`Amount to withdraw: $${amount}`);
+    console.log("Number of bills:");
     
     for (let bill of bills) {
-        if (amount >= bill) {
-            // Number of this bill needed
-            result[bill] = Math.floor(amount / bill);  
-            
-            // Reduce the amount accordingly
-            amount -= result[bill] * bill;  
+        let count = Math.floor(amount / bill);
+        if (count > 0) {
+            console.log(`  $${bill} bill(s): ${count}`);
+            amount -= count * bill;
         }
     }
     
-    console.log(result);
-    return result;
+    console.log("Withdrawal complete.\n");
 }
 
-
 let bills = [20, 10, 5, 1];
-let amount = 125;
+let testAmounts = [125, 87, 42, 19, 3];
 
-
-cashier(bills, amount);
+for (let amount of testAmounts) {
+    // loop through amounts to test scenarios
+    cashier(bills, amount);
+}
