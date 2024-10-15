@@ -4,18 +4,20 @@
 
 
 class myStack {
-    let data = [];
-
-    function push(input) {
-        let new_index = data.length - 1;
-        data[new_index] = input
-        return data
+    constructor() {
+        this.data = []; 
     }
 
-    function pop(input) {
-        let last_index = data.length - 1;
-        data[last_index].delete();
-        return data;
+    push(input) {
+        this.data.push(input);
+        return this.data;
+    }
+
+    pop(input) {
+        if (this.data.length === 0) {
+            return null;
+        }
+        return this.data.pop();
     }
 
 }
@@ -26,7 +28,7 @@ class myStack {
 const stack = new myStack();
 stack.push(10);
 stack.push(20);
-console.log(stack.peek()); // 20
+// console.log(stack.peek()); // 20
 console.log(stack.pop());  // 20
-console.log(stack.isEmpty()); // false
-console.log(stack.size()); // 1
+// console.log(stack.isEmpty()); // false
+// console.log(stack.size()); // 1
