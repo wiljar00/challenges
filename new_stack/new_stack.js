@@ -4,6 +4,19 @@
 
 
 class myStack {
+    let data = [];
+
+    function push(input) {
+        let new_index = data.length - 1;
+        data[new_index] = input
+        return data
+    }
+
+    function pop(input) {
+        let last_index = data.length - 1;
+        data[last_index].delete();
+        return data;
+    }
 
 }
 
