@@ -26,11 +26,7 @@ class myStack {
     }
 
     isEmpty() {
-        if (this.data.length === 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.data.length === 0;
     }
 
     size() {
@@ -40,11 +36,44 @@ class myStack {
 }
 
 
-// Usage: 
+// Test Cases:
+
 const stack = new myStack();
+
+// Test pushing multiple items
+console.log("Push 5, 10, 15 to stack");
+stack.push(5);
 stack.push(10);
-stack.push(20);
-console.log(stack.peek()); // 20
-console.log(stack.pop());  // 20
+stack.push(15);
+console.log(stack.data); // [5, 10, 15]
+
+// Test peek
+console.log("Peek at the top item");
+console.log(stack.peek()); // 15
+
+// Test size
+console.log("Size of stack:");
+console.log(stack.size()); // 3
+
+// Test popping an item
+console.log("Pop the top item");
+console.log(stack.pop()); // 15
+console.log(stack.data); // [5, 10]
+
+// Test isEmpty on a non-empty stack
+console.log("Check if stack is empty");
 console.log(stack.isEmpty()); // false
-console.log(stack.size()); // 1
+
+// Test popping all items
+console.log("Pop all items");
+console.log(stack.pop()); // 10
+console.log(stack.pop()); // 5
+console.log(stack.pop()); // null, as stack is now empty
+
+// Test isEmpty on an empty stack
+console.log("Check if stack is empty after popping all items");
+console.log(stack.isEmpty()); // true
+
+// Final check: size should be zero
+console.log("Final stack size:");
+console.log(stack.size()); // 0
