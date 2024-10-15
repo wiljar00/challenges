@@ -13,6 +13,11 @@ class myStack {
         return this.data;
     }
 
+    peek() {
+        let index = this.data.length - 1;
+        return this.data[index];
+    }
+
     pop(input) {
         if (this.data.length === 0) {
             return null;
@@ -28,7 +33,7 @@ class myStack {
 const stack = new myStack();
 stack.push(10);
 stack.push(20);
-// console.log(stack.peek()); // 20
+console.log(stack.peek()); // 20
 console.log(stack.pop());  // 20
 // console.log(stack.isEmpty()); // false
 // console.log(stack.size()); // 1
