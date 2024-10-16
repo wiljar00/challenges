@@ -61,7 +61,7 @@ class myStack {
 
 // Test Cases:
 
-const stack = new myStack();
+let stack = new myStack();
 
 // Test pushing multiple items
 console.log("Push 5, 10, 15 to stack");
@@ -100,3 +100,17 @@ console.log(stack.isEmpty()); // true
 // Final check: size should be zero
 console.log("Final stack size:");
 console.log(stack.size()); // 0
+
+
+// additional test scenarios:
+stack = new myStack();
+stack.push(5);
+stack.push(10);
+stack.push(15);
+console.log(stack.toString()); // "5 10 15"
+console.log(stack.contains(10)); // true
+console.log(stack.reverse()); // [15, 10, 5]
+const clonedStack = stack.clone();
+console.log(clonedStack.toString()); // "15 10 5"
+stack.clear();
+console.log(stack.isEmpty()); // true
