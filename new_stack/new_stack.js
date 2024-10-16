@@ -37,6 +37,10 @@ class myStack {
         this.data = [];
     }
 
+    contains(item) {
+        return this.data.includes(item);
+    }
+
 }
 
 
