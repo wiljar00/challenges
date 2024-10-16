@@ -33,6 +33,10 @@ class myStack {
         return this.data.length
     }
 
+    clear() {
+        this.data = [];
+    }
+
 }
 
 
