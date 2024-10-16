@@ -41,6 +41,21 @@ class myStack {
         return this.data.includes(item);
     }
 
+    toString() {
+        return this.data.join(' ');
+    }
+
+    reverse() {
+        this.data.reverse();
+        return this.data;
+    }
+
+    clone() {
+        const newStack = new myStack();
+        newStack.data = [...this.data];
+        return newStack;
+    }
+
 }
 
 
