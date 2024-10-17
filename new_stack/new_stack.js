@@ -62,6 +62,14 @@ class myStack {
         }
         return Math.min(...this.data);
     }
+
+    max() {
+        if (this.isEmpty()) {
+            return null;
+        }
+        return Math.max(...this.data);
+    }
+    
     
 
 }
