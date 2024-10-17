@@ -76,6 +76,17 @@ class myStack {
         }
     }    
 
+    swap() {
+        if (this.data.length < 2) {
+            // not enough elements to swap
+            return null;
+        }
+        const top = this.data.pop();
+        const second = this.data.pop();
+        this.push(top);
+        this.push(second);
+    }
+    
 }
 
 
