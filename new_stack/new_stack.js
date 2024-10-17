@@ -86,6 +86,11 @@ class myStack {
         this.push(top);
         this.push(second);
     }
+
+    sort() {
+        this.data.sort((a, b) => a - b);
+        return this.data;
+    }    
     
 }
 
@@ -145,3 +150,21 @@ const clonedStack = stack.clone();
 console.log(clonedStack.toString()); // "15 10 5"
 stack.clear();
 console.log(stack.isEmpty()); // true
+
+
+stack = new myStack();
+stack.push(20);
+stack.push(5);
+stack.push(10);
+
+console.log(stack.min()); // 5
+console.log(stack.max()); // 20
+
+stack.swap();
+console.log(stack.data); // [20, 10, 5]
+
+stack.duplicate();
+console.log(stack.data); // [20, 10, 5, 5]
+
+stack.sort();
+console.log(stack.data); // [5, 5, 10, 20]
