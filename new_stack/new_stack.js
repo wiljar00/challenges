@@ -70,7 +70,11 @@ class myStack {
         return Math.max(...this.data);
     }
     
-    
+    duplicate() {
+        if (!this.isEmpty()) {
+            this.push(this.peek());
+        }
+    }    
 
 }
 
