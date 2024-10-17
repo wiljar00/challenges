@@ -56,6 +56,14 @@ class myStack {
         return newStack;
     }
 
+    min() {
+        if (this.isEmpty()) {
+            return null;
+        }
+        return Math.min(...this.data);
+    }
+    
+
 }
 
 
