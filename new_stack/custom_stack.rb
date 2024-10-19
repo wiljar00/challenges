@@ -11,6 +11,10 @@ class CustomStack
     # add validations to value type
     @stack.push(value)
   end
+
+  def pop()
+    return @stack.pop()
+  end
 end
 
 
@@ -26,3 +30,7 @@ custom_stack.push(1)
 custom_stack.push(3)
 custom_stack.push(5)
 custom_stack.print_stack # expect [1, 3, 5]
+
+# pop one value from stack 
+puts custom_stack.pop() # expect 5
+custom_stack.print_stack() # expect [1, 3]
