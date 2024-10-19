@@ -15,6 +15,10 @@ class CustomStack
   def pop()
     return @stack.pop()
   end
+
+  def size()
+    return @stack.length
+  end
 end
 
 
@@ -34,3 +38,8 @@ custom_stack.print_stack # expect [1, 3, 5]
 # pop one value from stack 
 puts custom_stack.pop() # expect 5
 custom_stack.print_stack() # expect [1, 3]
+
+# return number of values in the stack
+custom_stack.push(5)
+custom_stack.print_stack()
+puts custom_stack.size() # expect 3
