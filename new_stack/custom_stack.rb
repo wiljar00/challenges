@@ -19,6 +19,11 @@ class CustomStack
   def size()
     return @stack.length
   end
+
+  def get_value_at_index(index)
+    # index starts at 0
+    return @stack[index]
+  end
 end
 
 
@@ -43,3 +48,7 @@ custom_stack.print_stack() # expect [1, 3]
 custom_stack.push(5)
 custom_stack.print_stack()
 puts custom_stack.size() # expect 3
+
+# return value at specefic index
+custom_stack.print_stack()
+puts custom_stack.get_value_at_index(2) # expect 5
