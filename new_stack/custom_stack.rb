@@ -24,6 +24,10 @@ class CustomStack
     # index starts at 0
     return @stack[index]
   end
+
+  def reverse_stack
+    return @stack.reverse
+  end
 end
 
 
@@ -49,6 +53,10 @@ custom_stack.push(5)
 custom_stack.print_stack()
 puts custom_stack.size() # expect 3
 
-# return value at specefic index
+# return value at specific index
 custom_stack.print_stack()
 puts custom_stack.get_value_at_index(2) # expect 5
+
+# reverses stack
+custom_stack.print_stack
+puts custom_stack.reverse_stack # expects [5, 3, 1]
