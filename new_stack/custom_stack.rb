@@ -28,6 +28,10 @@ class CustomStack
   def reverse_stack
     return @stack.reverse
   end
+
+  def duplicate_stack
+    return @stack.dup
+  end
 end
 
 
@@ -60,3 +64,6 @@ puts custom_stack.get_value_at_index(2) # expect 5
 # reverses stack
 custom_stack.print_stack
 puts custom_stack.reverse_stack # expects [5, 3, 1]
+
+# creates a duplicate stack
+puts custom_stack.duplicate_stack # expects [1, 3, 5]
