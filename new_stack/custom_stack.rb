@@ -12,11 +12,11 @@ class CustomStack
     @stack.push(value)
   end
 
-  def pop()
-    return @stack.pop()
+  def pop
+    return @stack.pop
   end
 
-  def size()
+  def size
     return @stack.length
   end
 
@@ -50,11 +50,11 @@ custom_stack.print_stack() # expect [1, 3]
 
 # return number of values in the stack
 custom_stack.push(5)
-custom_stack.print_stack()
+custom_stack.print_stack
 puts custom_stack.size() # expect 3
 
 # return value at specific index
-custom_stack.print_stack()
+custom_stack.print_stack
 puts custom_stack.get_value_at_index(2) # expect 5
 
 # reverses stack
