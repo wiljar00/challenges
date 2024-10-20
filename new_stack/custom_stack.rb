@@ -1,6 +1,6 @@
 class CustomStack
-  def initialize
-    @stack = []
+  def initialize(stack: [])
+    @stack = stack
   end
 
   def print_stack
@@ -30,7 +30,8 @@ class CustomStack
   end
 
   def duplicate_stack
-    return @stack.dup
+    duplicate = @stack.dup
+    return CustomStack.new(stack: duplicate)
   end
 end
 
@@ -66,4 +67,7 @@ custom_stack.print_stack
 puts custom_stack.reverse_stack # expects [5, 3, 1]
 
 # creates a duplicate stack
-puts custom_stack.duplicate_stack # expects [1, 3, 5]
+test_stack = custom_stack.duplicate_stack
+test_stack.push(7)
+custom_stack.print_stack # should be [1, 3, 5]
+test_stack.print_stack # should be [1, 3, 5, 7]
