@@ -37,6 +37,11 @@ class CustomStack
   def copy_stack
     return @stack.dup
   end
+
+  def add_hash(k, v)
+    new_value = {k => v}
+    @stack.push(new_value)
+  end
 end
 
 
@@ -78,3 +83,8 @@ test_stack.print_stack # should be [1, 3, 5, 7]
 
 # creates a copy of the stack
 test_stack2 = puts custom_stack.copy_stack.to_s
+
+# creates a hash in the stack
+custom_stack.print_stack # expect [1, 3, 5]
+custom_stack.add_hash("test_key", "test_value")
+custom_stack.print_stack # expect [1, 3, 5, {:k=>"test_value"}]
