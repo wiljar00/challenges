@@ -29,9 +29,13 @@ class CustomStack
     return @stack.reverse
   end
 
-  def duplicate_stack
+  def duplicate_stack_new_instance
     duplicate = @stack.dup
     return CustomStack.new(stack: duplicate)
+  end
+
+  def copy_stack
+    return @stack.dup
   end
 end
 
@@ -66,8 +70,11 @@ puts custom_stack.get_value_at_index(2) # expect 5
 custom_stack.print_stack
 puts custom_stack.reverse_stack # expects [5, 3, 1]
 
-# creates a duplicate stack
-test_stack = custom_stack.duplicate_stack
+# creates a duplicate customStack instance
+test_stack = custom_stack.duplicate_stack_new_instance
 test_stack.push(7)
 custom_stack.print_stack # should be [1, 3, 5]
 test_stack.print_stack # should be [1, 3, 5, 7]
+
+# creates a copy of the stack
+test_stack2 = puts custom_stack.copy_stack.to_s
