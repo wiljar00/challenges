@@ -12,7 +12,7 @@
  * @return {string|null} The first non-repeating character, or null if none exists
  */
 
-function firstNonRepeatingCharacter(str) {
+function firstSolution(str) {
   const charCount = {};
   for (let i = 0; i < str.length; i++) {
     const char = str[i];
@@ -29,6 +29,28 @@ function firstNonRepeatingCharacter(str) {
     }
   }
   return null;
+}
+
+function second_solution(str) {
+  // uses modern JS syntax object property access
+  const charMap = new Map();
+
+  for (const char of str) {
+    charMap.set(char, (charMap.get(char) || 0) + 1);
+  }
+
+  for (const [char, count] of charMap) {
+    if (count === 1) {
+      return char;
+    }
+  }
+
+  return null;
+}
+
+function firstNonRepeatingCharacter(str) {
+  //   return firstSolution(str);
+  return second_solution(str);
 }
 
 // Test cases
