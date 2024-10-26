@@ -7,8 +7,19 @@
 /**
  * Complete the getMoneySpent function below.
  */
-function getMoneySpent(keyboards, drives, b) {
+function getMoneySpent(keyboards, drives, budget) {
+    let max = -1;
 
+    for (let keyboard of keyboards) {
+        for (let drive of drives) {
+            let totalCost = keyboard + drive;
+            if (totalCost <= budget && totalCost > max) {
+                max = totalCost;
+            }
+        }
+    }
+
+    return max;
 }
 
 // Test cases
