@@ -1,5 +1,4 @@
-
-
+# find the first non repeating character in a string
 
 def first_hash_soluti0on(str)
   char_map = Hash.new(0)
@@ -17,9 +16,14 @@ def first_hash_soluti0on(str)
   'nothing'
 end
 
+def second_solution_using_array(str)
+  str.chars.find { |char| str.count(char) == 1 } || 'nothing'
+end
+
 
 def first_non_repeating_character(str)
-  first_hash_soluti0on(str)
+  # first_hash_soluti0on(str)
+  second_solution_using_array(str)
 end
 
 # Test cases
