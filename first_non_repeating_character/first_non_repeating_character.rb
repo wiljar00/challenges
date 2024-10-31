@@ -20,10 +20,16 @@ def second_solution_using_array(str)
   str.chars.find { |char| str.count(char) == 1 } || 'nothing'
 end
 
+def third_solution_using_ruby_tally(str)
+  chars = str.chars
+  char_counts = chars.tally
+  chars.find { |char| char_counts[char] == 1 } || 'nothing'
+end
 
 def first_non_repeating_character(str)
   # first_hash_soluti0on(str)
-  second_solution_using_array(str)
+  # second_solution_using_array(str)
+  third_solution_using_ruby_tally(str)
 end
 
 # Test cases
