@@ -1,14 +1,14 @@
 # find the first non repeating character in a string
 
 def first_hash_soluti0on(str)
+  # most efficient. O(n)
+  # best overall solution
   char_map = Hash.new(0)
   
-  # Count occurrences of each character
   str.each_char do |char|
     char_map[char] += 1
   end
   
-  # Find first character with count of 1
   str.each_char do |char|
     return char if char_map[char] == 1
   end
@@ -17,16 +17,20 @@ def first_hash_soluti0on(str)
 end
 
 def second_solution_using_array(str)
+  # most concise but less efficient. O(n^2)
   str.chars.find { |char| str.count(char) == 1 } || 'nothing'
 end
 
 def third_solution_using_ruby_tally(str)
+  # clean and readable. O(n)
+  # use if flexing ruby knowledge. Idiomatic ruby example
   chars = str.chars
   char_counts = chars.tally
   chars.find { |char| char_counts[char] == 1 } || 'nothing'
 end
 
 def fourth_solution_using_ruby_each_with_index(str)
+  # more verbose but less effeciant. O(n^2)
   chars = str.chars
   chars.each_with_index do |char, index|
     return char if chars.count(char) == 1
