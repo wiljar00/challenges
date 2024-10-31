@@ -26,10 +26,19 @@ def third_solution_using_ruby_tally(str)
   chars.find { |char| char_counts[char] == 1 } || 'nothing'
 end
 
+def fourth_solution_using_ruby_each_with_index(str)
+  chars = str.chars
+  chars.each_with_index do |char, index|
+    return char if chars.count(char) == 1
+  end
+  'nothing'
+end
+
 def first_non_repeating_character(str)
   # first_hash_soluti0on(str)
   # second_solution_using_array(str)
-  third_solution_using_ruby_tally(str)
+  # third_solution_using_ruby_tally(str)
+  fourth_solution_using_ruby_each_with_index(str)
 end
 
 # Test cases
