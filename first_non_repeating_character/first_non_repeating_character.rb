@@ -1,4 +1,7 @@
-def first_non_repeating_character(str)
+
+
+
+def first_hash_soluti0on(str)
   char_map = Hash.new(0)
   
   # Count occurrences of each character
@@ -12,6 +15,11 @@ def first_non_repeating_character(str)
   end
   
   'nothing'
+end
+
+
+def first_non_repeating_character(str)
+  first_hash_soluti0on(str)
 end
 
 # Test cases
