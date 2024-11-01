@@ -16,13 +16,19 @@ end
 
 
 lifo_queue = LifoQueue.new
+puts "adding 1"
 lifo_queue.add(1)
 puts "queue: #{lifo_queue.instance_variable_get(:@queue)}"
+puts "adding 2"
 lifo_queue.add(2)
 puts "queue: #{lifo_queue.instance_variable_get(:@queue)}"
+puts "adding 3"
 lifo_queue.add(3)
 puts "queue: #{lifo_queue.instance_variable_get(:@queue)}"
 
 puts "expects 3, got: #{lifo_queue.remove}"
+puts "queue: #{lifo_queue.instance_variable_get(:@queue)}"
 puts "expects 2, got: #{lifo_queue.remove}"
+puts "queue: #{lifo_queue.instance_variable_get(:@queue)}"
 puts "expects 1, got: #{lifo_queue.remove}"
+puts "queue: #{lifo_queue.instance_variable_get(:@queue)}"
