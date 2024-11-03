@@ -4,6 +4,10 @@ class LifoQueue {
   constructor() {
     this.queue = [];
   }
+
+  add(item) {
+    this.queue.push(item);
+  }
 }
 
 const lifoQueue = new LifoQueue();
