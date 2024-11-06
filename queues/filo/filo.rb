@@ -1,4 +1,4 @@
-# create an example of a lifo queue (last in first out)
+# Create an example of a LIFO queue (Last In First Out)
 
 class FiloQueue
   def initialize
@@ -10,14 +10,13 @@ class FiloQueue
   end
 
   def remove
-    @queue.pop
+    @queue.shift
   end
 
   def print_queue
     puts "queue: #{@queue}"
   end
 end
-
 
 lifo_queue = FiloQueue.new
 puts "adding 1"
