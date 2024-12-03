@@ -13,6 +13,8 @@
 
 require 'date'
 class Task
+  VALID_STATUSES = ['completed', 'new']
+
   def initialize
     @description = 'nothing'
     @due_date = Date.today
@@ -36,10 +38,10 @@ class Task
   end
 
   def set_status(input)
-    if input.is_a? String
+    if (input.is_a? String) && VALID_STATUSES.include?(input)
       @status = input
     else
-      raise "Incorrect input format: #{input.class}"
+      raise "Incorrect status: #{input}"
     end
   end
 
