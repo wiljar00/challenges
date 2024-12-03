@@ -55,7 +55,7 @@ class RubyTodoList
   VALID_INPUTS = ['add', 'remove', 'view_tasks', 'mark_completed'].freeze
 
   def initialize
-    @list = []
+    @list = [Task.new]
   end
 
   def start_app
@@ -68,7 +68,7 @@ class RubyTodoList
     when 'remove'
       puts 'remove selected'
     when 'view_tasks'
-      puts 'view_tasks selected'
+      print_list
     when 'mark_completed'
       puts 'mark_completed selected'
     else
