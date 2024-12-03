@@ -61,7 +61,10 @@ class RubyTodoList
   end
 
   def start_app
-    puts "To-Do List - "
+    puts " ************************************* "
+    puts "          Ruby To-Do List App "
+    puts " ************************************* "
+    puts ""
     print_list
 
     case get_input_choice
@@ -78,7 +81,6 @@ class RubyTodoList
     end
 
     puts ''
-    puts "Current list: "
     print_list
   end
 
@@ -139,7 +141,7 @@ class RubyTodoList
 
   def print_commands
     puts ''
-    puts "Current options: "
+    puts "Commands/optons: "
     puts "'add'             - to add a new task"
     puts "'remove'          - to remove a task from the list"
     puts "'view_tasks'      - to view a list of all current tasks"
@@ -149,6 +151,7 @@ class RubyTodoList
   end
 
   def print_list
+    puts "Current List: "
     @list.each_with_index do |task, index|
       puts "Task #{index}:"
       task.print_task
