@@ -66,12 +66,11 @@ class RubyTodoList
     when 'add'
       add_task
     when 'remove'
-      puts 'remove selected'
       remove_task
     when 'view_tasks'
       print_list
     when 'mark_completed'
-      puts 'mark_completed selected'
+      change_task_status('completed')
     else
       puts 'incorrect input'
     end
@@ -105,6 +104,16 @@ class RubyTodoList
     task_number = gets.chomp.to_i
     @list.delete_at(task_number)
     puts "Task #{task_number} was removed"
+    print_list
+  end
+
+  def change_task_status(status)
+    print_list
+    puts "Please enter the task number to be marked as #{status}: "
+    task_number = gets.chomp.to_i
+    task = @list[task_number]
+    task.set_status(status)
+    puts "Task #{task_number} was updated"
     print_list
   end
 
