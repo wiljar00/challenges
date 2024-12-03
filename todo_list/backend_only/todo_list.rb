@@ -41,16 +41,28 @@ class Task
 end
 
 class RubyTodoList
+
+  VALID_INPUTS = ['add', 'remove', 'view_tasks', 'mark_completed'].freeze
+
   def initialize
-    # @list should be an array of tasks
     @list = []
   end
 
   def start_app
     puts "To-Do List - "
     print_list
-    print_commands
 
+    loop do 
+      print_commands
+      input = gets.chomp
+  
+      if VALID_INPUTS.include?(input)
+        puts "You selected option #{input}."
+        break
+      else
+        puts "\nInvalid input - please pick from the above commands.\n"
+      end
+    end
 
     # todo:
     # 
@@ -70,11 +82,13 @@ class RubyTodoList
   private 
 
   def print_commands
+    puts "Current options: "
+    puts "'add'             - to add a new task"
+    puts "'remove'          - to remove a task from the list"
+    puts "'view_tasks'      - to view a list of all current tasks"
+    puts "'mark_completed'  - mark a task as completed"
+    puts ''
     puts "Please enter the command you would like to do: "
-    puts "'add' - to add a new task"
-    puts "'remove' - to remove a task from the list"
-    puts "'view_tasks' - to view a list of all current tasks"
-    puts "'mark_completed' - mark a task as completed"
   end
 
   def print_list
