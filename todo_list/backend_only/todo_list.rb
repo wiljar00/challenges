@@ -52,6 +52,8 @@ class RubyTodoList
     puts "To-Do List - "
     print_list
 
+    input = ''
+
     loop do 
       print_commands
       input = gets.chomp
@@ -64,24 +66,45 @@ class RubyTodoList
       end
     end
 
-    # todo:
-    # 
-    # ask user for input
-    # if input is "add"
-    #   setup questions for adding description and due date
-    # if input is "remove"
-    #   setup questions for remvoving a task
-    # if input is view_tasks
-    #   run print_list (this should be default behaviour as well)
-    # if input is mark_completed
-    #   setup quesitons for marking task as completed (add a status to task object)
-    # 
-    
+    case input
+    when 'add'
+      puts 'add selected'
+      add_task
+    when 'remove'
+      puts 'remove selected'
+    when 'view_tasks'
+      puts 'view_tasks selected'
+    when 'mark_completed'
+      puts 'mark_completed selected'
+    else
+      puts 'incorrect input'
+    end
+
+    puts ''
+    puts "Current list: "
+    print_list
   end
 
-  private 
+  # private 
+
+  def add_task
+    new_task = Task.new
+
+    puts "Please enter a description: "
+    description = gets.chomp 
+    new_task.set_description(description)
+
+    puts "Please enter a due date: "
+    due_date = gets.chomp
+    # may need to convert to date format first
+    new_task.set_due_date(due_date)
+
+    @list << new_task
+    puts "New task added!"
+  end
 
   def print_commands
+    puts ''
     puts "Current options: "
     puts "'add'             - to add a new task"
     puts "'remove'          - to remove a task from the list"
@@ -92,8 +115,10 @@ class RubyTodoList
   end
 
   def print_list
-    (0...@list.size).each do |index|
-      puts "Item #{index}: #{@list[index]}"
+    @list.each_with_index do |task, index|
+      puts "Task #{index}:"
+      task.print_task
+      puts ''
     end
   end
 end
