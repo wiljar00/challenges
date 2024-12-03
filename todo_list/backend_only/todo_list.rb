@@ -11,9 +11,38 @@
 # Add a feature to prioritize tasks.
 # Implement a simple search functionality to find tasks by keywords.
 
+require 'date'
+class Task
+  def initialize
+    @description = 'nothing'
+    @due_date = Date.today
+  end
+
+  def set_description(input)
+    if input.is_a? String
+      @description = input
+    else
+      "wrong input format"
+    end
+  end
+
+  def set_due_date(input)
+    if input.is_a? String || (input.is_a? Date)
+      @due_date = input
+    else
+      "wrong input format"
+    end
+  end
+
+  def print_task
+    puts "Description: #{@description}"
+    puts "Due Date: #{@due_date}"
+  end
+end
+
 class RubyTodoList
   def initialize
-    @list = ['item1', 'item2']
+    @list = ['task1', 'task2']
   end
 
   def print_list
@@ -24,5 +53,8 @@ class RubyTodoList
   end
 end
 
-instance = RubyTodoList.new
-instance.print_list
+test_task = Task.new
+test_task.print_task
+
+# instance = RubyTodoList.new
+# instance.print_list
