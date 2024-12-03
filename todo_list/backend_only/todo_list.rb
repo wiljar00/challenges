@@ -67,6 +67,7 @@ class RubyTodoList
       add_task
     when 'remove'
       puts 'remove selected'
+      remove_task
     when 'view_tasks'
       print_list
     when 'mark_completed'
@@ -96,6 +97,15 @@ class RubyTodoList
 
     @list << new_task
     puts "New task added!"
+  end
+
+  def remove_task
+    print_list
+    puts "Please enter the task number to be removed: "
+    task_number = gets.chomp.to_i
+    @list.delete_at(task_number)
+    puts "Task #{task_number} was removed"
+    print_list
   end
 
   def get_input_choice
