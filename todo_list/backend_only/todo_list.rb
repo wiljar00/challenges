@@ -35,8 +35,8 @@ class Task
   end
 
   def print_task
-    puts "Description: #{@description}"
-    puts "Due Date: #{@due_date}"
+    puts " * Description: #{@description}"
+    puts " * Due Date: #{@due_date}"
   end
 end
 
@@ -52,23 +52,8 @@ class RubyTodoList
     puts "To-Do List - "
     print_list
 
-    input = ''
-
-    loop do 
-      print_commands
-      input = gets.chomp
-  
-      if VALID_INPUTS.include?(input)
-        puts "You selected option #{input}."
-        break
-      else
-        puts "\nInvalid input - please pick from the above commands.\n"
-      end
-    end
-
-    case input
+    case get_input_choice
     when 'add'
-      puts 'add selected'
       add_task
     when 'remove'
       puts 'remove selected'
@@ -85,7 +70,7 @@ class RubyTodoList
     print_list
   end
 
-  # private 
+  private 
 
   def add_task
     new_task = Task.new
@@ -101,6 +86,24 @@ class RubyTodoList
 
     @list << new_task
     puts "New task added!"
+  end
+
+  def get_input_choice
+    input = ''
+
+    loop do 
+      print_commands
+      input = gets.chomp
+  
+      if VALID_INPUTS.include?(input)
+        puts "You selected option #{input}."
+        break
+      else
+        puts "\nInvalid input - please pick from the above commands.\n"
+      end
+    end
+
+    input
   end
 
   def print_commands
