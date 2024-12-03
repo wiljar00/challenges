@@ -22,15 +22,15 @@ class Task
     if input.is_a? String
       @description = input
     else
-      "wrong input format"
+      raise "Incorrect input format: #{input.class}"
     end
   end
 
   def set_due_date(input)
-    if input.is_a? String || (input.is_a? Date)
+    if (input.is_a? String) || (input.is_a? Date)
       @due_date = input
     else
-      "wrong input format"
+      raise "Incorrect input format: #{input.class}"
     end
   end
 
@@ -42,19 +42,68 @@ end
 
 class RubyTodoList
   def initialize
-    @list = ['task1', 'task2']
+    # @list should be an array of tasks
+    @list = []
+  end
+
+  def start_app
+    puts "To-Do List - "
+    print_list
+    print_commands
+
+
+    # todo:
+    # 
+    # ask user for input
+    # if input is "add"
+    #   setup questions for adding description and due date
+    # if input is "remove"
+    #   setup questions for remvoving a task
+    # if input is view_tasks
+    #   run print_list (this should be default behaviour as well)
+    # if input is mark_completed
+    #   setup quesitons for marking task as completed (add a status to task object)
+    # 
+    
+  end
+
+  private 
+
+  def print_commands
+    puts "Please enter the command you would like to do: "
+    puts "'add' - to add a new task"
+    puts "'remove' - to remove a task from the list"
+    puts "'view_tasks' - to view a list of all current tasks"
+    puts "'mark_completed' - mark a task as completed"
   end
 
   def print_list
-    puts "To-Do List - "
     (0...@list.size).each do |index|
       puts "Item #{index}: #{@list[index]}"
     end
   end
 end
 
-test_task = Task.new
-test_task.print_task
+# ################################################################################# #
+# Testing...
+# # ################################################################################# #
 
-# instance = RubyTodoList.new
-# instance.print_list
+# Task tests
+# test_task = Task.new
+# test_task.print_task
+
+# test_task.set_description("finish this project")
+# test_task.print_task # expect description to be udpated
+# test_task.set_description(123) # expect error to raise
+# test_task.set_due_date("2024-12-03")
+# test_task.print_task # expect due_date to be tomorrow
+# test_task.set_due_date(Date.today + 2)
+# test_task.print_task # expect due_date to be the day after tomorrow
+# test_task.set_due_date(2024-12-03) # expect an error to raise
+
+# ################################################################################# #
+# Runing the Todo List app
+# ################################################################################# #
+
+instance = RubyTodoList.new
+instance.start_app
