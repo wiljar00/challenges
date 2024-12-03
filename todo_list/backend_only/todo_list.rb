@@ -16,6 +16,7 @@ class Task
   def initialize
     @description = 'nothing'
     @due_date = Date.today
+    @status = 'new'
   end
 
   def set_description(input)
@@ -34,9 +35,18 @@ class Task
     end
   end
 
+  def set_status(input)
+    if input.is_a? String
+      @status = input
+    else
+      raise "Incorrect input format: #{input.class}"
+    end
+  end
+
   def print_task
     puts " * Description: #{@description}"
     puts " * Due Date: #{@due_date}"
+    puts " * Status: #{@status}"
   end
 end
 
@@ -142,6 +152,9 @@ end
 # test_task.set_due_date(Date.today + 2)
 # test_task.print_task # expect due_date to be the day after tomorrow
 # test_task.set_due_date(2024-12-03) # expect an error to raise
+# 
+# test_task.set_status('completed')
+# test_task.print_task # expect status to be completed
 
 # ################################################################################# #
 # Runing the Todo List app
