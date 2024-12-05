@@ -1,9 +1,9 @@
 # challenge is to create a backend only todo list with the following features: 
 # 
-# 1. Add a Task: Users can add a task with a description and a due date.
-# 2. Remove a Task: Users can remove a task by its index or description.
-# 3. View Tasks: Users can view all tasks, optionally filtering by status (completed or not).
-# 4. Mark Task as Completed: Users can mark a task as completed.
+# 1. (done) Add a Task: Users can add a task with a description and a due date.
+# 2. (done) Remove a Task: Users can remove a task by its index or description.
+# 3. (done) View Tasks: Users can view all tasks, optionally filtering by status (completed or not).
+# 4. (done) Mark Task as Completed: Users can mark a task as completed.
 # 5. Persist Data: Use a JSON file to save and load tasks when the application starts and exits.
 # 
 # Bonus Features:
@@ -120,5 +120,13 @@ module RubyTodoList
         puts ''
       end
     end
+
+    # Next steps:
+    # Update the print_list method to instead use a printable version returned from Task
+    # Update Task to have an id/name rather than updating in-line
+        # ideas: 
+        # maybe convert print_task to instance string variables usable in the print_task methon and also when converting to json
+        # maybe add a title variable as well? Some identifier is needed for the json object..
+    # Figure out how to output this list as a json object to a file
   end
 end
