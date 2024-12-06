@@ -16,7 +16,7 @@ require 'date'
 module RubyTodoList
   class TodoList
 
-    VALID_INPUTS = ['add', 'remove', 'view_tasks', 'mark_completed'].freeze
+    VALID_INPUTS = ['add', 'remove', 'view_tasks', 'mark_completed', 'exit'].freeze
 
     def initialize
       @list = [Task.new]
@@ -29,21 +29,28 @@ module RubyTodoList
       puts ""
       print_list
 
-      case get_input_choice
-      when 'add'
-        add_task
-      when 'remove'
-        remove_task
-      when 'view_tasks'
+      loop do 
+        case get_input_choice
+        when 'add'
+          add_task
+        when 'remove'
+          remove_task
+        when 'view_tasks'
+          print_list
+        when 'mark_completed'
+          change_task_status('completed')
+        when 'exit'
+          break
+        else
+          puts 'incorrect input'
+        end
+
+        puts ''
         print_list
-      when 'mark_completed'
-        change_task_status('completed')
-      else
-        puts 'incorrect input'
       end
 
       puts ''
-      print_list
+      puts "Thanks for using the todo-list app!"
     end
 
     private 
@@ -108,6 +115,7 @@ module RubyTodoList
       puts "'remove'          - to remove a task from the list"
       puts "'view_tasks'      - to view a list of all current tasks"
       puts "'mark_completed'  - mark a task as completed"
+      puts "'exit'            - quit app"
       puts ''
       puts "Please enter the command you would like to do: "
     end
