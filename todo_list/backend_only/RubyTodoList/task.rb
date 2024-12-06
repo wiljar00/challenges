@@ -3,7 +3,8 @@ module RubyTodoList
   class Task
     VALID_STATUSES = ['completed', 'new']
   
-    def initialize
+    def initialize(index: 'na')
+      @name = 'Task ' + index
       @description = 'nothing'
       @due_date = Date.today
       @status = 'new'
@@ -34,6 +35,7 @@ module RubyTodoList
     end
   
     def print_task
+      puts "#{@name}"
       puts " * Description: #{@description}"
       puts " * Due Date: #{@due_date}"
       puts " * Status: #{@status}"
