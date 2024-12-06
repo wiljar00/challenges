@@ -19,7 +19,7 @@ module RubyTodoList
     VALID_INPUTS = ['add', 'remove', 'view_tasks', 'mark_completed', 'exit'].freeze
 
     def initialize
-      @list = [Task.new]
+      @list = [Task.new(index: 1)]
     end
 
     def start_app
@@ -36,6 +36,7 @@ module RubyTodoList
         when 'remove'
           remove_task
         when 'view_tasks'
+          # possible future work - paginate/split up default rows shwon and show all only with this option
           print_list
         when 'mark_completed'
           change_task_status('completed')
@@ -56,7 +57,7 @@ module RubyTodoList
     private 
 
     def add_task
-      new_task = Task.new
+      new_task = Task.new(index: @list.length + 1)
 
       puts "Please enter a description: "
       description = gets.chomp 
@@ -123,7 +124,6 @@ module RubyTodoList
     def print_list
       puts "Current List: "
       @list.each_with_index do |task, index|
-        puts "Task #{index}:"
         task.print_task
         puts ''
       end
