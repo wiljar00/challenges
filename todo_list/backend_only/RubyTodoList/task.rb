@@ -1,10 +1,10 @@
-
+require 'date'
 module RubyTodoList
   class Task
     VALID_STATUSES = ['completed', 'new']
   
     def initialize(index: 'na')
-      @name = 'Task ' + index
+      @name = "Task #{index}"
       @description = 'nothing'
       @due_date = Date.today
       @status = 'new'
@@ -35,10 +35,20 @@ module RubyTodoList
     end
   
     def print_task
-      puts "#{@name}"
+      puts @name
       puts " * Description: #{@description}"
       puts " * Due Date: #{@due_date}"
       puts " * Status: #{@status}"
     end
   end
 end
+
+### Testing
+
+# default input test
+# task = RubyTodoList::Task.new
+# task.print_task
+
+# test task name
+# task = RubyTodoList::Task.new(index: 1)
+# task.print_task 
