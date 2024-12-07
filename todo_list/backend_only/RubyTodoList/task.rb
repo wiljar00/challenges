@@ -1,4 +1,5 @@
 require 'date'
+require 'json'
 module RubyTodoList
   class Task
     VALID_STATUSES = ['completed', 'new']
@@ -40,6 +41,15 @@ module RubyTodoList
       puts " * Due Date: #{@due_date}"
       puts " * Status: #{@status}"
     end
+
+    def convert_to_json
+      {
+        name: @name,
+        description: @description,
+        due_date: @due_date,
+        status: @status
+    }.to_json
+    end
   end
 end
 
@@ -48,6 +58,7 @@ end
 # default input test
 # task = RubyTodoList::Task.new
 # task.print_task
+# puts task.convert_to_json
 
 # test task name
 # task = RubyTodoList::Task.new(index: 1)
