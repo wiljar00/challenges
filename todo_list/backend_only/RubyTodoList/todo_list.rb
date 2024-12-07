@@ -12,6 +12,7 @@
 # Implement a simple search functionality to find tasks by keywords.
 
 require 'date'
+require 'json'
 
 module RubyTodoList
   class TodoList
@@ -19,7 +20,7 @@ module RubyTodoList
     VALID_INPUTS = ['add', 'remove', 'view_tasks', 'mark_completed', 'save', 'exit'].freeze
 
     def initialize
-      @list = [Task.new(index: 1)]
+      @list = load_list_from_file || []
     end
 
     def start_app
@@ -155,12 +156,20 @@ module RubyTodoList
       puts "- - - - - - - - - - - - - - - - -"
     end
 
-    # Next steps:
-    # Update the print_list method to instead use a printable version returned from Task
-    # Update Task to have an id/name rather than updating in-line
-        # ideas: 
-        # maybe convert print_task to instance string variables usable in the print_task methon and also when converting to json
-        # maybe add a title variable as well? Some identifier is needed for the json object..
-    # Figure out how to output this list as a json object to a file
+    def load_list_from_file
+      file_path = 'data.json'
+      json_data = File.read(file_path)
+      data = JSON.parse(json_data)
+      data.each do |task|
+        # TODO - create new Task object from json data
+        @list = []
+        @list << task if task
+      end
+      puts "Data successfully loaded."
+    end
+
+    # ideas: 
+    # maybe convert print_task to instance string variables usable in the print_task methon and also when converting to json
+    # maybe add a title variable as well? Some identifier is needed for the json object..
   end
 end
