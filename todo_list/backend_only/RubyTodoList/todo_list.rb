@@ -16,7 +16,7 @@ require 'date'
 module RubyTodoList
   class TodoList
 
-    VALID_INPUTS = ['add', 'remove', 'view_tasks', 'mark_completed', 'exit'].freeze
+    VALID_INPUTS = ['add', 'remove', 'view_tasks', 'mark_completed', 'save', 'exit'].freeze
 
     def initialize
       @list = [Task.new(index: 1)]
@@ -40,6 +40,8 @@ module RubyTodoList
           print_list
         when 'mark_completed'
           change_task_status('completed')
+        when 'save'
+          save_to_file
         when 'exit'
           break
         else
@@ -116,6 +118,7 @@ module RubyTodoList
       puts "'remove'          - to remove a task from the list"
       puts "'view_tasks'      - to view a list of all current tasks"
       puts "'mark_completed'  - mark a task as completed"
+      puts "'save'            - save current list to file (data.json)"
       puts "'exit'            - quit app"
       puts ''
       puts "Please enter the command you would like to do: "
@@ -146,7 +149,10 @@ module RubyTodoList
         file.write(json_list)
       end
 
-      puts "List saved to file successfullly."
+      puts ''
+      puts "- - - - - - - - - - - - - - - - -"
+      puts "List saved to file 'data.json' successfullly."
+      puts "- - - - - - - - - - - - - - - - -"
     end
 
     # Next steps:
