@@ -129,6 +129,26 @@ module RubyTodoList
       end
     end
 
+    def convert_list_to_json
+      json_list = []
+
+      @list.each do |task|
+        json_list << task.convert_to_json
+      end
+
+      json_list
+    end
+
+    def save_to_file
+      json_list = convert_list_to_json
+
+      File.open('data.json', 'w') do |file|
+        file.write(json_list)
+      end
+
+      puts "List saved to file successfullly."
+    end
+
     # Next steps:
     # Update the print_list method to instead use a printable version returned from Task
     # Update Task to have an id/name rather than updating in-line
