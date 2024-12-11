@@ -131,13 +131,11 @@ module RubyTodoList
     end
 
     def convert_list_to_json
-      json_list = []
-
-      @list.each do |task|
-        json_list << task.convert_to_json
+      json_list = @list.map do |task|
+        task.convert_to_json
       end
-
-      json_list
+      
+      JSON.generate(json_list)
     end
 
     def save_to_file
