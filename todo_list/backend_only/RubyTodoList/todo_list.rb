@@ -4,7 +4,7 @@
 # 2. (done) Remove a Task: Users can remove a task by its index or description.
 # 3. (done) View Tasks: Users can view all tasks, optionally filtering by status (completed or not).
 # 4. (done) Mark Task as Completed: Users can mark a task as completed.
-# 5. Persist Data: Use a JSON file to save and load tasks when the application starts and exits.
+# 5. (done) Persist Data: Use a JSON file to save and load tasks when the application starts and exits.
 # 
 # Bonus Features:
 # Implement sorting of tasks by due date.
@@ -48,9 +48,6 @@ module RubyTodoList
         else
           puts 'incorrect input'
         end
-
-        puts ''
-        print_list
       end
 
       puts ''
