@@ -155,17 +155,24 @@ module RubyTodoList
       puts "List saved to file 'data.json' successfullly."
       puts "- - - - - - - - - - - - - - - - -"
     end
-
+    
     def load_list_from_file
       file_path = 'data.json'
+      return [] unless File.exist?(file_path)  # Return empty array if file doesn't exist
+      
       json_data = File.read(file_path)
       data = JSON.parse(json_data)
-      data.each do |task|
-        # TODO - create new Task object from json data
-        @list = []
-        @list << task if task
+      loaded_list = []
+      
+      data.each do |task_data|
+        task = Task.new(index: loaded_list.length + 1)
+        task.set_description(task_data['description'])
+        task.set_due_date(task_data['due_date'])
+        task.set_status(task_data['status']) if task_data['status']
+        loaded_list << task
       end
-      puts "Data successfully loaded."
+      
+      loaded_list
     end
 
     # ideas: 
