@@ -135,7 +135,7 @@ module RubyTodoList
         task.convert_to_json
       end
       
-      JSON.generate(json_list)
+      JSON.pretty_generate(json_list)
     end
 
     def save_to_file

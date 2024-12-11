@@ -48,7 +48,7 @@ module RubyTodoList
         description: @description,
         due_date: @due_date,
         status: @status
-    }.to_json
+      }
     end
   end
 end

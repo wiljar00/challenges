@@ -1,1 +1,14 @@
-["{\"name\":\"Task 1\",\"description\":\"testing\",\"due_date\":\"10102020\",\"status\":\"new\"}","{\"name\":\"Task 2\",\"description\":\"second task\",\"due_date\":\"20202020\",\"status\":\"new\"}"]
+[
+  {
+    "name": "Task 1",
+    "description": "test one",
+    "due_date": "20201010",
+    "status": "new"
+  },
+  {
+    "name": "Task 2",
+    "description": "second test ",
+    "due_date": "2010-2920",
+    "status": "new"
+  }
+]
