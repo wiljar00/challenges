@@ -155,25 +155,25 @@ module RubyTodoList
       puts "List saved to file 'data.json' successfullly."
       puts "- - - - - - - - - - - - - - - - -"
     end
+
+  def load_list_from_file
+    file_path = 'data.json'
+    return [] unless File.exist?(file_path)
     
-    def load_list_from_file
-      file_path = 'data.json'
-      return [] unless File.exist?(file_path)  # Return empty array if file doesn't exist
-      
-      json_data = File.read(file_path)
-      data = JSON.parse(json_data)
-      loaded_list = []
-      
-      data.each do |task_data|
-        task = Task.new(index: loaded_list.length + 1)
-        task.set_description(task_data['description'])
-        task.set_due_date(task_data['due_date'])
-        task.set_status(task_data['status']) if task_data['status']
-        loaded_list << task
-      end
-      
-      loaded_list
+    json_data = File.read(file_path)
+    data = JSON.parse(json_data).map { |task_string| JSON.parse(task_string) }  # Parse twice
+    loaded_list = []
+    
+    data.each do |task_data|
+      task = Task.new(index: loaded_list.length + 1)
+      task.set_description(task_data['description'])
+      task.set_due_date(task_data['due_date'])
+      task.set_status(task_data['status']) if task_data['status']
+      loaded_list << task
     end
+    
+    loaded_list
+  end
 
     # ideas: 
     # maybe convert print_task to instance string variables usable in the print_task methon and also when converting to json
