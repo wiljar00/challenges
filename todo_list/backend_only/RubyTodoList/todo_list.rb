@@ -43,9 +43,12 @@ module RubyTodoList
           change_task_status('completed')
         when 'save'
           save_to_file
-        when 'sort'
-          # for now it just sorts by due_date
+        when 'sort_date'
           sort_list
+        when 'sort_status'
+          sort_list("status")
+        when 'sort_description'
+          sort_list("description")
         when 'exit'
           break
         else
