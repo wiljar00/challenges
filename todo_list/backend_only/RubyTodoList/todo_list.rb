@@ -160,7 +160,7 @@ module RubyTodoList
     return [] unless File.exist?(file_path)
     
     json_data = File.read(file_path)
-    data = JSON.parse(json_data).map { |task_string| JSON.parse(task_string) }  # Parse twice
+    data = JSON.parse(json_data)
     loaded_list = []
     
     data.each do |task_data|
