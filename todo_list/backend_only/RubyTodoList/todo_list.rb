@@ -170,6 +170,19 @@ module RubyTodoList
     loaded_list
   end
 
+  def sort_list(criteria = 'due_date')
+    case criteria
+    when 'due_date'
+      @list.sort_by! { |task| Date.parse(task.due_date) rescue Date::Infinity.new }
+    when 'status'
+      @list.sort_by! { |task| task.status }
+    when 'description'
+      @list.sort_by! { |task| task.description.downcase }
+    end
+    renumber_tasks
+    puts "List sorted by #{criteria}!"
+  end
+
     # ideas: 
     # maybe convert print_task to instance string variables usable in the print_task methon and also when converting to json
     # maybe add a title variable as well? Some identifier is needed for the json object..
