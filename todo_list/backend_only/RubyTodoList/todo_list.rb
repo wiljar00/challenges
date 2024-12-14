@@ -43,6 +43,9 @@ module RubyTodoList
           change_task_status('completed')
         when 'save'
           save_to_file
+        when 'sort'
+          # for now it just sorts by due_date
+          sort_list
         when 'exit'
           break
         else
@@ -115,6 +118,7 @@ module RubyTodoList
       puts "'add'             - to add a new task"
       puts "'remove'          - to remove a task from the list"
       puts "'view_tasks'      - to view a list of all current tasks"
+      puts "'sort'            - sort tasks by due date"
       puts "'mark_completed'  - mark a task as completed"
       puts "'save'            - save current list to file (data.json)"
       puts "'exit'            - quit app"
