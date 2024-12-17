@@ -3,12 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo List in JS</title>
+    <title>Todo List App</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+    />
+    <!-- Materialize CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
   </head>
   <body>
-    <div id="todoList">testing</div>
-    <button id="testBtn">test button</button>
+    <div class="container">
+      <h1 class="center-align">Todo List App</h1>
+      <div class="input-field">
+        <input type="text" id="taskInput" placeholder="Add a new task" />
+        <label for="taskInput"></label>
+      </div>
+      <button id="addTaskBtn" class="btn waves-effect waves-light">
+        Add Task
+      </button>
+
+      <ul id="taskList" class="collection"></ul>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
