@@ -37,11 +37,10 @@ h1 {
 }
 
 .collection-item {
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 15px 20px !important;
 }
 
 .collection-item:last-child {
@@ -59,4 +58,14 @@ h1 {
 
 .collection-item .delete-btn:hover {
   background-color: #d32f2f;
+}
+
+.task-description {
+  font-size: 1.1em;
+}
+
+.task-date {
+  color: #666;
+  font-size: 0.9em;
+  font-style: italic;
 }

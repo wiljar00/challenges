@@ -10,7 +10,22 @@ function refreshList() {
 
   todoList.forEach(function (task) {
     var listItem = document.createElement("li");
-    listItem.textContent = `${task.description} (Due: ${task.dueDate || 'No date set'})`;
+    listItem.className = "collection-item";
+    
+    // Create description span
+    var descSpan = document.createElement("span");
+    descSpan.className = "task-description";
+    descSpan.textContent = task.description;
+    
+    // Create due date span
+    var dateSpan = document.createElement("span");
+    dateSpan.className = "task-date";
+    dateSpan.textContent = task.dueDate ? `Due: ${task.dueDate}` : 'No due date';
+    
+    // Add both spans to list item
+    listItem.appendChild(descSpan);
+    listItem.appendChild(dateSpan);
+    
     taskList.appendChild(listItem);
   });
 }
