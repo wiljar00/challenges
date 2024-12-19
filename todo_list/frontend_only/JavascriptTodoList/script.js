@@ -10,19 +10,25 @@ function refreshList() {
 
   todoList.forEach(function (task) {
     var listItem = document.createElement("li");
-    listItem.textContent = task;
+    listItem.textContent = `${task.description} (Due: ${task.dueDate || 'No date set'})`;
     taskList.appendChild(listItem);
   });
 }
 
 function addTask() {
   var description = document.getElementById("taskInput").value;
+  var dueDate = document.getElementById("dueDateInput").value;
+  
   if (description) {
-    todoList.push(description);
+    todoList.push({
+      description: description,
+      dueDate: dueDate
+    });
     refreshList();
     document.getElementById("taskInput").value = "";
+    document.getElementById("dueDateInput").value = "";
   } else {
-    alert("Please enter a task.");
+    alert("Please enter a task description.");
   }
 }
 
