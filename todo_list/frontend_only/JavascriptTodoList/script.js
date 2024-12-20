@@ -4,11 +4,16 @@ function showPopup() {
   alert(todoList);
 }
 
+function deleteTask(index) {
+  todoList.splice(index, 1);
+  refreshList();
+}
+
 function refreshList() {
   var taskList = document.getElementById("taskList");
   taskList.innerHTML = "";
 
-  todoList.forEach(function (task) {
+  todoList.forEach(function (task, index) {
     var listItem = document.createElement("li");
     listItem.className = "collection-item";
     
@@ -22,9 +27,23 @@ function refreshList() {
     dateSpan.className = "task-date";
     dateSpan.textContent = task.dueDate ? `Due: ${task.dueDate}` : 'No due date';
     
-    // Add both spans to list item
+    // Create delete button
+    var deleteBtn = document.createElement("button");
+    deleteBtn.className = "delete-btn";
+    deleteBtn.innerHTML = "Delete";
+    deleteBtn.onclick = function() {
+      deleteTask(index);
+    };
+    
+    // Create a wrapper for date and delete button
+    var rightSection = document.createElement("div");
+    rightSection.className = "right-section";
+    rightSection.appendChild(dateSpan);
+    rightSection.appendChild(deleteBtn);
+    
+    // Add elements to list item
     listItem.appendChild(descSpan);
-    listItem.appendChild(dateSpan);
+    listItem.appendChild(rightSection);
     
     taskList.appendChild(listItem);
   });
