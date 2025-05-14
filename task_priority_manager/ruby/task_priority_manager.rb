@@ -18,7 +18,10 @@ class TaskPriorityManager
   end
 
   def add_task(title, description, priority)
-    # TODO: Implement this method
+    new_task = Task.new(@next_id, 'title', description, priority)
+    @tasks[@next_id] = new_task
+    @next_id += 1
+    new_task
   end
 
   def update_task_priority(task_id, new_priority)
@@ -68,4 +71,4 @@ def run_tests
 end
 
 # Uncomment to run tests
-# run_tests 
+run_tests 
