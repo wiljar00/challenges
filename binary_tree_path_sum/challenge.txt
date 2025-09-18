@@ -1,0 +1,78 @@
+Binary Tree Path Sum Challenge
+
+Challenge:
+
+Given a binary tree, determine if there exists a root-to-leaf path where the sum of all node values along the path equals a given target sum.
+
+Problem Statement:
+
+You are required to implement a solution that:
+1. Creates a binary tree data structure
+2. Checks if there exists a root-to-leaf path with a given sum
+3. Handles edge cases appropriately
+
+Example:
+
+Input Tree:
+      5
+     / \
+    4   8
+   /   / \
+  11  13  4
+ /  \      \
+7    2      1
+
+Target sum: 22
+Output: true
+Explanation: There exists a root-to-leaf path 5 → 4 → 11 → 2 with sum = 22
+
+Input Tree:
+      1
+     / \
+    2   3
+
+Target sum: 5
+Output: false
+Explanation: No root-to-leaf path has sum = 5
+
+Constraints:
+
+- The number of nodes in the tree is in the range [0, 5000]
+- -1000 <= Node.val <= 1000
+- -1000 <= targetSum <= 1000
+
+Requirements:
+
+1. Implement a TreeNode class with:
+   - val (integer value)
+   - left (pointer to left child)
+   - right (pointer to right child)
+
+2. Implement a function that takes:
+   - root: TreeNode
+   - targetSum: integer
+   - Returns: boolean
+
+3. Handle edge cases:
+   - Empty tree (null root)
+   - Single node tree
+   - Tree with only left or right children
+
+Evaluation Criteria:
+
+- Correctness: The solution should produce the correct output for all test cases
+- Efficiency: Aim for O(n) time complexity where n is the number of nodes
+- Code Quality: Write clean, well-organized code with meaningful variable names
+- Edge Cases: Proper handling of null inputs and boundary conditions
+- Algorithm Understanding: Demonstrate understanding of tree traversal concepts
+
+Bonus Challenges:
+
+1. Return all paths that sum to the target (not just existence)
+2. Find the path with minimum sum
+3. Implement both recursive and iterative solutions
+4. Handle negative values and zero sums appropriately
+
+Time Limit:
+- 30 minutes for basic implementation
+- 45 minutes with bonus features
